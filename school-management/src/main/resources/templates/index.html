@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:fragment="layout(content)">
+<head>
+<meta charset="ISO-8859-1">
+<title>School Management</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+
+
+	<div th:replace="navbar :: nav"></div>
+	<div th:replace="${content}"></div>
+	<div th:replace="footer :: footer"></div>
+
+
+</body>
+<script th:src="@{/js/bootstrap.js}"></script>
+</html>

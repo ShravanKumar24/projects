@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+th:replace="~{index::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+
+<section>
+    <div class="container">
+        <h1>Search Results</h1>
+
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Roll Number</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th><div>Actions</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Check if searchResult is not empty before iterating -->
+                <tr th:each="result : ${searchResult}">
+                    <td th:text="${result.rollNo}" />
+                    <td th:text="${result.firstName}" />
+                    <td th:text="${result.lastName}" />
+                    <td th:text="${result.email}" />
+                    <td th:text="${result.gender}" />
+                    <!-- Add action buttons for updating and deleting if needed -->
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Add any additional content or styling as needed -->
+
+    </div>
+</section>
+
+<script th:src="@{/js/bootstrap.js}"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="ISO-8859-1">
+<title>nav bar</title>
+</head>
+<body>
+	<nav
+		class="navbar navbar-expand-lg navbar-light bg-body-tertiary fixed-top d-flex ">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">School Management</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/student}">Students</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/teacher}">Teachers</a></li>
+
+				<span sec:authorize="isAuthenticated()">
+						<li class="nav-item">
+							<a th:href="@{/logout}" class="nav-link"
+											style="position: fixed; top: 0; right: 175px; margin: 10px; border-radius: 10px;">Logout</a>
+						</li>
+					</span>
+					
+					<span sec:authorize="isAuthenticated()"> <li class="nav-item"><a
+							th:href="@{/profile}" class="nav-link"
+							style="position: fixed; top: 0; right: 120px; margin: 10px; border-radius: 10px;">Profile</a>
+					</li></span>
+					<span sec:authorize="!isAuthenticated()">
+						<li class="nav-item"><a th:href="@{/login}" class="nav-link"
+							style="position: fixed; top: 0; right: 70px; margin: 10px; border-radius: 10px;">Login</a>
+					</li>
+					</span>
+					<span sec:authorize="!isAuthenticated()">
+					<li class="nav-item"><a
+							th:href="@{/register}" class="nav-link"
+							style="position: fixed; top: 0; right: 0px; margin: 10px; border-radius: 10px;">Register</a>
+					</li></span>
+
+				</ul>
+				<div class="d-flex flex-row justify-content-end"
+					style="z-index: 1080;">
+
+					<!-- Check if the user is authenticated -->
+					<ul>
+
+					</ul>
+				</div>
+			</div>
+			</div>
+	</nav>
+</body>
+</html>

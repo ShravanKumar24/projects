@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{index::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+</head>
+<body>
+	<nav></nav>
+	<section class="vh-100 bg-image"
+		style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+		<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+			<div class="container h-100">
+				<div
+					class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+						<div class="card" style="border-radius: 15px;">
+							<div class="card-body p-5">
+								<h2 class="text-uppercase text-center mb-5">Update a
+									Student</h2>
+
+								<form th:action="@{'/student/edit/' + ${stddto.rollNo}}"
+									th:object="${stddto}" method="post">
+
+
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example4cg">Roll
+											Number</label> <input type="number" id="form3Example4cg"
+											class="form-control form-control-lg" name="rollNo"
+											th:field="*{rollNo}"/>
+
+									</div>
+
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example1cg">First
+											Name</label> <input type="text" id="form3Example1cg"
+											class="form-control form-control-lg" name="firstName"
+											th:field="*{firstName}" />
+									</div>
+
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example1cg">Last
+											Name</label> <input type="text" id="form3Example1cg"
+											class="form-control form-control-lg" name="lastName"
+											th:field="*{lastName}" />
+									</div>
+
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example3cg">Gender</label>
+										<input type="text" id="form3Example3cg"
+											class="form-control form-control-lg" name="gender"
+											th:field="*{gender}" />
+									</div>
+
+									<div class="form-outline mb-4">
+										<label class="form-label" for="form3Example3cg">Email</label>
+										<input type="email" id="form3Example3cg"
+											class="form-control form-control-lg" name="email"
+											th:field="*{email}" />
+									</div>
+
+									<div class="d-flex">
+										<button type="submit"
+											class="btn btn-success btn-block btn-lg gradient-custom-4 text-body border-10">Register</button>
+										<button type="reset"
+											class="btn btn-success btn-block btn-lg gradient-custom-4 text-body m-3">Reset</button>
+									</div>
+
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer></footer>
+</body>
+</html>
